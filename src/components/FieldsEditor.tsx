@@ -34,12 +34,13 @@ export const FieldsEditor: FC<FieldsEditorProps> = ({ fields, onChange }) => {
       ) : (
         <>
           {/* Header row */}
-          <div className="grid grid-cols-[1.8fr_2fr_80px_80px_36px] gap-1.5 px-4 py-2 text-xs font-medium text-gray-400 border-b border-gray-100 bg-gray-50">
+          <div className="grid grid-cols-[1.8fr_2fr_80px_80px_36px_36px] gap-1.5 px-4 py-2 text-xs font-medium text-gray-400 border-b border-gray-100 bg-gray-50">
             <span>field</span>
             <span>header</span>
             <span>width</span>
             <span>тип</span>
             <span className="text-center">вкл</span>
+            <span className="text-center">hide</span>
           </div>
 
           {/* Scrollable field list */}
@@ -47,7 +48,7 @@ export const FieldsEditor: FC<FieldsEditorProps> = ({ fields, onChange }) => {
             {fields.map((f, i) => (
               <div
                 key={f.field}
-                className="grid grid-cols-[1.8fr_2fr_80px_80px_36px] gap-1.5 items-center px-4 py-1.5 text-xs"
+                className="grid grid-cols-[1.8fr_2fr_80px_80px_36px_36px] gap-1.5 items-center px-4 py-1.5 text-xs"
               >
                 {/* field name */}
                 <span
@@ -89,6 +90,18 @@ export const FieldsEditor: FC<FieldsEditorProps> = ({ fields, onChange }) => {
                     checked={f.enabled}
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
                       update(i, 'enabled', e.target.checked)
+                    }
+                    className="w-3.5 h-3.5 cursor-pointer accent-blue-600"
+                  />
+                </div>
+
+                {/* hidden toggle */}
+                <div className="flex justify-center">
+                  <input
+                    type="checkbox"
+                    checked={f.hidden}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      update(i, 'hidden', e.target.checked)
                     }
                     className="w-3.5 h-3.5 cursor-pointer accent-blue-600"
                   />

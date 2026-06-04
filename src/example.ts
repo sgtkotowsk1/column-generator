@@ -1,57 +1,17 @@
-export const EXAMPLE_INTERFACE = `export interface MeasureDeviceDTO {
+export const EXAMPLE_INTERFACE = `export interface MyDTO {
     /**
      * @type {number}
-     * @memberof MeasureDeviceDTO
+     * @memberof MyDTO
      */
-    'deviceId'?: number;
+    'id'?: number;
     /**
      * @type {string}
-     * @memberof MeasureDeviceDTO
+     * @memberof MyDTO
      */
-    'deviceName'?: string;
+    'name'?: string;
     /**
      * @type {string}
-     * @memberof MeasureDeviceDTO
+     * @memberof MyDTO
      */
-    'deviceNum'?: string;
-    /**
-     * @type {string}
-     * @memberof MeasureDeviceDTO
-     */
-    'unitCode'?: string;
-    /**
-     * @type {string}
-     * @memberof MeasureDeviceDTO
-     */
-    'unitName'?: string;
-    /**
-     * @type {string}
-     * @memberof MeasureDeviceDTO
-     */
-    'precisionUnitCode'?: string;
-    /**
-     * @type {string}
-     * @memberof MeasureDeviceDTO
-     */
-    'precisionUnitName'?: string;
-    /**
-     * @type {number}
-     * @memberof MeasureDeviceDTO
-     */
-    'precision'?: number;
-    /**
-     * @type {number}
-     * @memberof MeasureDeviceDTO
-     */
-    'tagId'?: number;
-    /**
-     * @type {string}
-     * @memberof MeasureDeviceDTO
-     */
-    'mountPlace'?: string;
-    /**
-     * @type {number}
-     * @memberof MeasureDeviceDTO
-     */
-    'mountX'?: number;
+    'description'?: string;
 }`;

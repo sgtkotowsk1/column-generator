@@ -80,6 +80,7 @@ export function parseInterface(src: string): ParseResult {
       width: guessWidth(rawKey, type),
       type,
       enabled: true,
+      hidden: false,
     });
   }
 

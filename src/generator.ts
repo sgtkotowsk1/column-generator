@@ -4,14 +4,15 @@ export function generateCode(fields: ParsedField[], opts: GeneratorOptions): str
   const active = fields.filter((f) => f.enabled);
   if (!active.length) return '// Нет выбранных полей';
 
-  const { rowType, showWidth, trailingComma, format } = opts;
+  const { rowType, showWidth, format } = opts;
 
   const items = active.map((f, idx) => {
     const isLast = idx === active.length - 1;
     let line = `    { header: "${f.header}", field: "${f.field}"`;
     if (showWidth) line += `, width: ${f.width}`;
+    if (f.hidden) line += `, hidden: true`;
     line += ` }`;
-    if (!isLast || trailingComma) line += ',';
+    if (!isLast ) line += ',';
     return line;
   });
 

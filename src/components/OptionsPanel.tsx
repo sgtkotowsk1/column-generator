@@ -7,6 +7,8 @@ interface OptionsPanelProps {
   onChange: (opts: GeneratorOptions) => void;
 }
 
+
+
 export const OptionsPanel: FC<OptionsPanelProps> = ({ options, onChange }) => {
   const set = <K extends keyof GeneratorOptions>(key: K, value: GeneratorOptions[K]) =>
     onChange({ ...options, [key]: value });
@@ -20,12 +22,13 @@ export const OptionsPanel: FC<OptionsPanelProps> = ({ options, onChange }) => {
           <span className="whitespace-nowrap">Тип строки:</span>
           <div className="flex items-center gap-1.5">
             <select
-              value={options.rowType === 'any' ? 'any' : '__custom__'}
+              //value={options.rowType === 'any' ? 'any' : '__custom__'}
               onChange={(e: ChangeEvent<HTMLSelectElement>) => {
                 if (e.target.value === 'any') set('rowType', 'any');
                 else set('rowType', '');
               }}
               className="px-2 py-1 border border-gray-200 rounded-md bg-gray-50 text-gray-800 text-xs outline-none focus:border-blue-400"
+              defaultValue={"custom type"}
             >
               <option value="any">any</option>
               <option value="__custom__">custom type</option>
@@ -67,19 +70,7 @@ export const OptionsPanel: FC<OptionsPanelProps> = ({ options, onChange }) => {
           />
           width
         </label>
-
-        {/* Trailing comma */}
-        <label className="flex items-center gap-1.5 text-xs text-gray-600 cursor-pointer select-none">
-          <input
-            type="checkbox"
-            checked={options.trailingComma}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              set('trailingComma', e.target.checked)
-            }
-            className="w-3.5 h-3.5 accent-blue-600"
-          />
-          trailing comma
-        </label>
+        
       </div>
     </Panel>
   );

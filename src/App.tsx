@@ -14,9 +14,8 @@ type ParseStatus = {
 };
 
 const DEFAULT_OPTS: GeneratorOptions = {
-  rowType: 'any',
+  rowType: '',
   showWidth: true,
-  trailingComma: false,
   format: 'array',
 };
 
