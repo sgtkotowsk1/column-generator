@@ -14,6 +14,6 @@ export type OutputFormat = 'array' | 'usememo';
 export interface GeneratorOptions {
   rowType: string;
   showWidth: boolean;
-  //trailingComma: boolean;
+  dtoName: string;
   format: OutputFormat;
 }
