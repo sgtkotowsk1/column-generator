@@ -29,8 +29,9 @@ function App() {
       : { state: "ok", message: `${result.fields.length} полей` };
   });
 
-    const dtoName = useMemo(
-    () => source.match(/export\s+interface\s+(\w+)/)?.[1] ?? "MyRowType",
+  const dtoName = useMemo(
+    () =>
+      source.match(/export\s+(?:interface|type)\s+(\w+)/)?.[1] ?? "MyRowType",
     [source]
   );
 
@@ -38,10 +39,8 @@ function App() {
     rowType: "custom",
     showWidth: true,
     format: "array",
-    dtoName: dtoName
+    dtoName: dtoName,
   });
-
-
 
   const effectiveOptions = useMemo(
     () => ({
@@ -104,10 +103,7 @@ function App() {
           <FieldsEditor fields={fields} onChange={setFields} />
         </div>
 
-        <OptionsPanel
-          options={options}
-          onChange={setOptions}
-        />
+        <OptionsPanel options={options} onChange={setOptions} />
 
         <CodeOutput code={code} fields={fields} />
       </div>
